@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Stopwatch</title>
+</head>
+<body>
+    <h1>STOP WATCH</h1>
+    <div class="watch" >
+        <div class="watch-face">
+            <div class="display">
+               
+                <span class="display">00:00:00</span>
+            </div>
+            <div class="controls">
+                <button class="start" onclick="swatch()">Start</button>
+                <button class="stop" onclick="stwatch()">Stop</button>
+                <button class="reset" onclick="rstwatch()">Reset</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        const display = document.querySelector('.display');
+        const startBtn = document.querySelector('.start');
+        const stopBtn = document.querySelector('.stop');
+        const resetBtn = document.querySelector('.reset');
+        let milliseconds = 0;
+        let seconds = 0;
+        let minutes = 0;    
+        let hours = 0;
+        let interval;
+        let isRunning = false;
+       
+        startBtn.addEventListener('click', start);
+        stopBtn.addEventListener('click', stop);
+         
+         resetBtn.addEventListener('click', reset);
+         
+         function start() {
+             if (!isRunning) {
+                 interval = setInterval(updateTime, 5);
+                 isRunning = true;
+             }
+         }
+         
+         function stop() {
+             clearInterval(interval);
+             isRunning = false;
+         }
+       
+         function reset() {
+             clearInterval(interval);
+             isRunning = false;
+             milliseconds = 0;
+             seconds = 0;
+             minutes = 0;
+             hours = 0;
+             display.textContent = '00:00:00';
+         }
+         
+         function updateTime() {
+             milliseconds++;
+             if (milliseconds === 100) {
+                 milliseconds = 0;
+                 seconds++;
+             }
+             if (seconds === 60) {
+                 seconds = 0;
+                 minutes++;
+             }
+             if (minutes === 60) {
+                 minutes = 0;
+                 hours++;
+             }
+                display.textContent = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}:${milliseconds < 10 ? '0' + milliseconds : milliseconds}`;
+            }
+        function swatch(){
+            alert("Stopwatch is started");
+        }
+        function stwatch(){
+            alert("Stopwatch is stopped");
+        }
+        function rstwatch(){
+            alert("Stopwatch is reset");
+        }
+
+    </script>
+</body>
+</html>
