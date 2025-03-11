@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting</title>
+</head>
+<body>
+    <h1>Voting System</h1>
+   
+    <form >
+    <label for="name">Enter your name:</label>
+    <input type="text" name="name" id="name" required>
+    <br>
+
+    <label for="age">Enter your age:</label>
+    <input type="number" name="age" id="age" required>
+    <br>
+    <label for="nationality">Enter your nationality:</label>
+    <input type="text" name="nationality" id="nationality" required>
+    <br>
+    <button type="submit" onclick="validateForm()">Vote</button>
+    </form>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8d4d4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 55px;
+        border-radius: 5px;
+    }
+    form label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    form input[type="text"],
+    form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    form button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+    
+
+</style>
+<script>
+    function validateForm() {
+        var name = document.getElementById('name').value;
+        var age = document.getElementById('age').value;
+        var nationality = document.getElementById('nationality').value;
+
+        if (name === '' || age === '' || nationality === '') {
+            alert('Please fill in all fields');
+            return false;
+        }
+
+        if (age < 18) {
+            alert('You must be at least 18 years old to vote');
+            return false;
+        }
+
+        if (nationality !== 'Indian') {
+            alert('You must be an Indian citizen to vote');
+            
+            return false;
+            
+        }
+        alert('You are eligible to vote');
+        return true;n
+    }
+    </script>
+
+</script>
+</body>
+</html>

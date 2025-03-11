@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Object</title>
+    </head>
+    <body>
+        <form>
+            <label for="name">Enter your name:</label>
+            <input type="text" name="name" id="name" required>
+            <br>
+
+            <label for="age">Enter your age:</label>
+            <input type="number" name="age" id="age" required>
+            <br>
+            <label for="city">Enter your city:</label>
+            <input type="text" name="city" id="city" required>
+            <br>
+            <input type="submit" value="Submit" >   
+        </form>
+        <button id="show"></button>
+        <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                getdata();
+            });
+                const name = document.getElementById('name');
+                const age = document.getElementById('age');
+                const city = document.getElementById('city');
+                const person1=[];
+                function getdata(){
+                    const person = { 
+                        name: name.value,
+                        age: age.value,
+                        city: city.value
+                    };
+                    person1.push(person);
+                    console.log(person1);
+                    const strdata=JSON.stringify(person1);
+                    console.log(strdata);
+                    localStorage.setItem('person',strdata);
+                    console.log(person);
+                    
+
+                }
+                const show=document.getElementbyId('show');
+                show.addEventListener('click',function(){
+                    const data=localStorage.getItem('person');
+                    console.log(data);
+                    const obj=JSON.parse(data);
+                    console.log(obj);
+                });
+
+                                    
+                
+            
+        </script>
+        </script>
+    </body>
+</html>
