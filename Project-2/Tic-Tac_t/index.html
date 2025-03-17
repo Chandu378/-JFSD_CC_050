@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Tic-Tac-Toe</h1>
+        <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text">Dark Mode</span>
+        </button>
+    </div>
+
+    <div class="game-container">
+        <div class="status" id="status">Start the game by entering player names!</div>
+        
+        <div class="player-info">
+            <div class="player" id="player1">Player X</div>
+            <div class="player" id="player2">Player O</div>
+        </div>
+        
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        
+        <div class="buttons">
+            <button id="restartBtn">Restart Game</button>
+        </div>
+    </div>
+
+    <div class="leaderboard-container">
+        <h2 class="leaderboard-title">Leaderboard</h2>
+        <table class="leaderboard" id="leaderboard">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+                
+            </tbody>
+        </table>
+    </div>
+
+   
+    <div id="playerNameModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Enter Player Names</h2>
+            <form id="playerNameForm" class="modal-form">
+                <div class="input-group">
+                    <label for="player1Name">Player X:</label>
+                    <input type="text" id="player1Name" placeholder="Enter name" required>
+                </div>
+                <div class="input-group">
+                    <label for="player2Name">Player O:</label>
+                    <input type="text" id="player2Name" placeholder="Enter name" required>
+                </div>
+                <button type="submit">Start Game</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title" id="gameOverTitle">Game Over</h2>
+            <p id="gameOverMessage" style="text-align: center; font-size: 1.2rem;"></p>
+            <button id="newGameBtn">New Game</button>
+        </div>
+    </div>
+
+    
+    <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
+    <audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3" preload="auto"></audio>
+    <audio id="drawSound" src="https://assets.mixkit.co/sfx/preview/mixkit-game-show-wrong-answer-buzz-950.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
